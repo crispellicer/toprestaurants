@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/customer_name"
+            android:id="@+id/reserve_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -18,13 +18,13 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/customer_surname"
+            android:id="@+id/reserve_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <Button
-            android:id="@+id/customer_details_button"
+            android:id="@+id/reserve_details_button"
             android:layout_width="201dp"
             android:layout_height="37dp"
             android:backgroundTint="#1A0342"

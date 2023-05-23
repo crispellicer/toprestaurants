@@ -1,11 +1,15 @@
 package com.svalero.toprestaurants;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.svalero.toprestaurants.adapter.RestaurantAdapter;
 import com.svalero.toprestaurants.db.AppDatabase;
@@ -38,10 +42,27 @@ public class RestaurantsListView extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "restaurants")
+        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "toprestaurants")
                 .allowMainThreadQueries().build();
         restaurantsList.clear();
         restaurantsList.addAll(db.restaurantDao().getAll());
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_rest, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.register_restaurant) {
+            Intent intent = new Intent(this, RegisterRestaurantActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return false;
     }
 }

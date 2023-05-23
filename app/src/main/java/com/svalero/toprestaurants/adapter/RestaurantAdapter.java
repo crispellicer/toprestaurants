@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.toprestaurants.R;
@@ -56,9 +55,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             super(view);
             parentView = view;
 
-            restaurantName = view.findViewById(R.id.restaurant_name);
-            restaurantType = view.findViewById(R.id.restaurant_type);
-            restaurantDetailsButton = view.findViewById(R.id.restaurant_details_button);
+            restaurantName = view.findViewById(R.id.customer_name);
+            restaurantType = view.findViewById(R.id.customer_surname);
+            restaurantDetailsButton = view.findViewById(R.id.customer_details_button);
 
             restaurantDetailsButton.setOnClickListener(v -> seeDetails(getAdapterPosition()));
         }
