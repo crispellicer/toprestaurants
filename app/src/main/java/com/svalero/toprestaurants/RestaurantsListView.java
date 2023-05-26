@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.svalero.toprestaurants.adapter.RestaurantAdapter;
 import com.svalero.toprestaurants.db.AppDatabase;
@@ -64,5 +65,9 @@ public class RestaurantsListView extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    public void goBackButton(View view) {
+        onBackPressed();
     }
 }

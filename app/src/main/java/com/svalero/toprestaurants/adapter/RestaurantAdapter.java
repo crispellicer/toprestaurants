@@ -1,5 +1,7 @@
 package com.svalero.toprestaurants.adapter;
 
+import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,9 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.svalero.toprestaurants.R;
 import com.svalero.toprestaurants.RestaurantDetailsActivity;
+import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Restaurant;
 
 import java.util.List;
@@ -49,23 +53,38 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         public TextView restaurantName;
         public TextView restaurantType;
         public Button restaurantDetailsButton;
+        public Button deleteRestaurantButton;
         public View parentView;
 
         public RestaurantHolder(View view) {
             super(view);
             parentView = view;
 
-            restaurantName = view.findViewById(R.id.customer_name);
-            restaurantType = view.findViewById(R.id.customer_surname);
-            restaurantDetailsButton = view.findViewById(R.id.customer_details_button);
+            restaurantName = view.findViewById(R.id.restaurant_name);
+            restaurantType = view.findViewById(R.id.restaurant_type);
+            restaurantDetailsButton = view.findViewById(R.id.restaurant_details_button);
+            deleteRestaurantButton = view.findViewById(R.id.delete_restaurant_button);
 
             restaurantDetailsButton.setOnClickListener(v -> seeDetails(getAdapterPosition()));
+            deleteRestaurantButton.setOnClickListener(v -> deleteRestaurant(getAdapterPosition()));
         }
     }
 
     private void seeDetails(int position) {
+        Restaurant restaurant = restaurantsList.get(position);
+
         Intent intent = new Intent(context, RestaurantDetailsActivity.class);
-        intent.putExtra("position", position);
+        intent.putExtra("name", restaurant.getName());
         context.startActivity(intent);
+    }
+
+    private void deleteRestaurant(int position) {
+        final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+                .allowMainThreadQueries().build();
+        Restaurant restaurant = restaurantsList.get(position);
+        db.restaurantDao().delete(restaurant);
+
+        restaurantsList.remove(position);
+        notifyItemRemoved(position);
     }
 }

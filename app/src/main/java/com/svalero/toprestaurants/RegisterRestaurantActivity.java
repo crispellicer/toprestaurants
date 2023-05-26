@@ -38,7 +38,7 @@ public class RegisterRestaurantActivity extends AppCompatActivity {
         boolean veganMenu = checkVeganMenu.isChecked();
         String website = etWebsite.getText().toString();
 
-        Restaurant restaurant = new Restaurant(name, timetable, type, reservePrice,false, website);
+        Restaurant restaurant = new Restaurant(name, timetable, type, reservePrice,veganMenu, website);
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         db.restaurantDao().insert(restaurant);

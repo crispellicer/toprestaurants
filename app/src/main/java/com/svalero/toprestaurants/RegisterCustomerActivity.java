@@ -35,7 +35,7 @@ public class RegisterCustomerActivity extends AppCompatActivity {
         String birthDate = etBirthDate.getText().toString();
         boolean vip = checkVip.isChecked();
 
-        Customer customer = new Customer(name, surname, telephone, birthDate,false);
+        Customer customer = new Customer(name, surname, telephone, birthDate, vip);
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         db.customerDao().insert(customer);

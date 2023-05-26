@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#1A0342"
             android:onClick="saveButton"
             android:text="Save" />
 
@@ -29,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#1A0342"
             android:onClick="goBackButton"
             android:text="Return" />
     </LinearLayout>
@@ -40,21 +42,29 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/edit_text_reserve_customer_name"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textViewSelectCustomerName"
+            android:layout_width="169dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Customer name"
-            android:inputType="textPersonName" />
+            android:text="Select customer" />
 
-        <EditText
-            android:id="@+id/edit_text_reserve_restaurant_name"
+        <Spinner
+            android:id="@+id/spinner_reserve_customer_name"
             android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/textViewSelectRestaurantName"
+            android:layout_width="169dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Restaurant name"
-            android:inputType="textPersonName" />
+            android:text="Select restaurant" />
+
+        <Spinner
+            android:id="@+id/spinner_reserve_restaurant_name"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:spinnerMode="dropdown" />
 
         <EditText
             android:id="@+id/edit_text_reserve_people"

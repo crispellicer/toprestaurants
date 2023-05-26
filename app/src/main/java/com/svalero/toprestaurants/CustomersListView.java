@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.svalero.toprestaurants.adapter.CustomerAdapter;
 import com.svalero.toprestaurants.db.AppDatabase;
@@ -64,5 +65,9 @@ public class CustomersListView extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    public void goBackButton(View view) {
+        onBackPressed();
     }
 }

@@ -1,5 +1,7 @@
 package com.svalero.toprestaurants.adapter;
 
+import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,10 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.svalero.toprestaurants.CustomerDetailsActivity;
 import com.svalero.toprestaurants.R;
+import com.svalero.toprestaurants.RestaurantDetailsActivity;
+import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Customer;
+import com.svalero.toprestaurants.domain.Restaurant;
 
 import java.util.List;
 
@@ -49,6 +55,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         public TextView customerName;
         public TextView customerSurname;
         public Button customerDetailsButton;
+        public Button deleteCustomerButton;
         public View parentView;
 
         public CustomerHolder(View view) {
@@ -58,14 +65,28 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             customerName = view.findViewById(R.id.customer_name);
             customerSurname = view.findViewById(R.id.customer_surname);
             customerDetailsButton = view.findViewById(R.id.customer_details_button);
+            deleteCustomerButton = view.findViewById(R.id.delete_customer_button);
 
             customerDetailsButton.setOnClickListener(v -> seeDetails(getAdapterPosition()));
+            deleteCustomerButton.setOnClickListener(v -> deleteCustomer(getAdapterPosition()));
         }
     }
 
     private void seeDetails(int position) {
+        Customer customer = customersList.get(position);
+
         Intent intent = new Intent(context, CustomerDetailsActivity.class);
-        intent.putExtra("position", position);
+        intent.putExtra("name", customer.getName());
         context.startActivity(intent);
+    }
+
+    private void deleteCustomer(int position) {
+        final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+                .allowMainThreadQueries().build();
+        Customer customer = customersList.get(position);
+        db.customerDao().delete(customer);
+
+        customersList.remove(position);
+        notifyItemRemoved(position);
     }
 }

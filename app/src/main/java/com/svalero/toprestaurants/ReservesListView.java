@@ -1,5 +1,7 @@
 package com.svalero.toprestaurants;
 
+import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.svalero.toprestaurants.adapter.CustomerAdapter;
 import com.svalero.toprestaurants.adapter.ReserveAdapter;
@@ -44,7 +47,7 @@ public class ReservesListView extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "toprestaurants")
+        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         reservesList.clear();
         reservesList.addAll(db.reserveDao().getAll());
@@ -66,5 +69,9 @@ public class ReservesListView extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    public void goBackButton(View view) {
+        onBackPressed();
     }
 }

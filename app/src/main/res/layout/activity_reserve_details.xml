@@ -17,13 +17,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewCustomerName"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:text="Customer" />
 
             <TextView
-                android:id="@+id/tv_customer_name_details"
+                android:id="@+id/tv_reserve_customername_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -36,13 +36,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewSurname"
+                android:id="@+id/textViewRestaurantName"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Surname" />
+                android:text="Restaurant" />
 
             <TextView
-                android:id="@+id/tv_customer_surname_details"
+                android:id="@+id/tv_reserve_restaurantname_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -55,13 +55,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewTelephone"
+                android:id="@+id/textViewPeople"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Telephone" />
+                android:text="People" />
 
             <TextView
-                android:id="@+id/tv_customer_telephone_details"
+                android:id="@+id/tv_reserve_people_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -74,13 +74,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewBirthDate"
+                android:id="@+id/textViewTables"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Birth Date" />
+                android:text="Tables" />
 
             <TextView
-                android:id="@+id/tv_customer_birthdate_details"
+                android:id="@+id/tv_reserve_tables_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -93,13 +93,52 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewVip"
+                android:id="@+id/textViewReserveDate"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="VIP" />
+                android:text="Reserve Date" />
+
+            <TextView
+                android:id="@+id/tv_reserve_date_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewIsPaid"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Paid" />
 
             <CheckBox
-                android:id="@+id/cb_customer_vip_details"
+                android:id="@+id/cb_reserve_paid_details"
+                android:clickable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewAllergic"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Allergic people" />
+
+            <CheckBox
+                android:id="@+id/cb_reserve_allergic_details"
                 android:clickable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
