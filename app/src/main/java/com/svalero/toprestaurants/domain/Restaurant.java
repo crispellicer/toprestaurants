@@ -25,6 +25,16 @@ public class Restaurant {
     @ColumnInfo
     private String website;
 
+    public Restaurant(long id, String name, String timetable, String type, double reservePrice, boolean veganMenu, String website) {
+        this.id = id;
+        this.name = name;
+        this.timetable = timetable;
+        this.type = type;
+        this.reservePrice = reservePrice;
+        this.veganMenu = veganMenu;
+        this.website = website;
+    }
+
     public Restaurant(String name, String timetable, String type, double reservePrice, boolean veganMenu, String website) {
         this.name = name;
         this.timetable = timetable;

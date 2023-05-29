@@ -2,6 +2,7 @@ package com.svalero.toprestaurants.adapter;
 
 import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.svalero.toprestaurants.CustomerDetailsActivity;
+import com.svalero.toprestaurants.ModifyCustomerActivity;
+import com.svalero.toprestaurants.ModifyReserveActivity;
 import com.svalero.toprestaurants.R;
 import com.svalero.toprestaurants.ReserveDetailsActivity;
 import com.svalero.toprestaurants.db.AppDatabase;
@@ -55,7 +58,7 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveH
         public TextView reserveId;
         public TextView reserveDate;
         public Button reserveDetailsButton;
-
+        public Button modifyReserveButton;
         public Button deleteReserveButton;
         public View parentView;
 
@@ -66,9 +69,11 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveH
             reserveId = view.findViewById(R.id.reserve_id);
             reserveDate = view.findViewById(R.id.reserve_date);
             reserveDetailsButton = view.findViewById(R.id.reserve_details_button);
+            modifyReserveButton = view.findViewById(R.id.modify_reserve_button);
             deleteReserveButton = view.findViewById(R.id.delete_reserve_button);
 
             reserveDetailsButton.setOnClickListener(v -> seeDetails(getAdapterPosition()));
+            modifyReserveButton.setOnClickListener(v -> modifyReserve(getAdapterPosition()));
             deleteReserveButton.setOnClickListener(v -> deleteReserve(getAdapterPosition()));
         }
     }
@@ -81,13 +86,29 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveH
         context.startActivity(intent);
     }
 
-    private void deleteReserve(int position) {
-        final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
-                .allowMainThreadQueries().build();
+    private void modifyReserve(int position){
         Reserve reserve = reservesList.get(position);
-        db.reserveDao().delete(reserve);
 
-        reservesList.remove(position);
-        notifyItemRemoved(position);
+        Intent intent = new Intent(context, ModifyReserveActivity.class);
+        intent.putExtra("id", reserve.getId());
+        context.startActivity(intent);
+    }
+
+    private void deleteReserve(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Are you sure?")
+                .setTitle("Delete reserve")
+                .setPositiveButton("Yes", (dialog, id) -> {
+                    final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+                            .allowMainThreadQueries().build();
+                    Reserve reserve = reservesList.get(position);
+                    db.reserveDao().delete(reserve);
+
+                    reservesList.remove(position);
+                    notifyItemRemoved(position);
+                })
+                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

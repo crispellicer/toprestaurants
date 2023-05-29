@@ -24,6 +24,17 @@ public class Reserve {
     @ColumnInfo
     private boolean allergic;
 
+    public Reserve(long id, long customerId, long restaurantId, int people, int tables, String reserveDate, boolean isPaid, boolean allergic) {
+        this.id = id;
+        this.customerId = customerId;
+        this.restaurantId = restaurantId;
+        this.people = people;
+        this.tables = tables;
+        this.reserveDate = reserveDate;
+        this.isPaid = isPaid;
+        this.allergic = allergic;
+    }
+
     public Reserve(long customerId, long restaurantId, int people, int tables, String reserveDate, boolean isPaid, boolean allergic) {
         this.customerId = customerId;
         this.restaurantId = restaurantId;
@@ -33,6 +44,8 @@ public class Reserve {
         this.isPaid = isPaid;
         this.allergic = allergic;
     }
+
+    public Reserve(){}
 
     public long getId() {
         return id;

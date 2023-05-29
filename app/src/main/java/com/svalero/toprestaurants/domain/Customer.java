@@ -20,6 +20,15 @@ public class Customer {
     @ColumnInfo
     private boolean vip;
 
+    public Customer(long id, String name, String surname, String telephone, String birthDate, boolean vip) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.telephone = telephone;
+        this.birthDate = birthDate;
+        this.vip = vip;
+    }
+
     public Customer(String name, String surname, String telephone, String birthDate, boolean vip) {
         this.name = name;
         this.surname = surname;
@@ -27,6 +36,8 @@ public class Customer {
         this.birthDate = birthDate;
         this.vip = vip;
     }
+
+    public Customer() {}
 
     public long getId() {
         return id;

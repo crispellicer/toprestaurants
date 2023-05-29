@@ -2,6 +2,7 @@ package com.svalero.toprestaurants.adapter;
 
 import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,11 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.svalero.toprestaurants.CustomerDetailsActivity;
+import com.svalero.toprestaurants.ModifyCustomerActivity;
 import com.svalero.toprestaurants.R;
-import com.svalero.toprestaurants.RestaurantDetailsActivity;
 import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Customer;
-import com.svalero.toprestaurants.domain.Restaurant;
 
 import java.util.List;
 
@@ -55,6 +55,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         public TextView customerName;
         public TextView customerSurname;
         public Button customerDetailsButton;
+        public Button modifyCustomerButton;
         public Button deleteCustomerButton;
         public View parentView;
 
@@ -65,9 +66,11 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             customerName = view.findViewById(R.id.customer_name);
             customerSurname = view.findViewById(R.id.customer_surname);
             customerDetailsButton = view.findViewById(R.id.customer_details_button);
+            modifyCustomerButton = view.findViewById(R.id.modify_customer_button);
             deleteCustomerButton = view.findViewById(R.id.delete_customer_button);
 
             customerDetailsButton.setOnClickListener(v -> seeDetails(getAdapterPosition()));
+            modifyCustomerButton.setOnClickListener(v -> modifyCustomer(getAdapterPosition()));
             deleteCustomerButton.setOnClickListener(v -> deleteCustomer(getAdapterPosition()));
         }
     }
@@ -80,13 +83,29 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         context.startActivity(intent);
     }
 
-    private void deleteCustomer(int position) {
-        final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
-                .allowMainThreadQueries().build();
+    private void modifyCustomer(int position){
         Customer customer = customersList.get(position);
-        db.customerDao().delete(customer);
 
-        customersList.remove(position);
-        notifyItemRemoved(position);
+        Intent intent = new Intent(context, ModifyCustomerActivity.class);
+        intent.putExtra("id", customer.getId());
+        context.startActivity(intent);
+    }
+
+    private void deleteCustomer(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Are you sure?")
+                .setTitle("Delete customer")
+                .setPositiveButton("Yes", (dialog, id) -> {
+                    final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+                            .allowMainThreadQueries().build();
+                    Customer customer = customersList.get(position);
+                    db.customerDao().delete(customer);
+
+                    customersList.remove(position);
+                    notifyItemRemoved(position);
+                })
+                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

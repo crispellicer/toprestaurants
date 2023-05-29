@@ -8,6 +8,7 @@ import androidx.room.Room;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Customer;
 import com.svalero.toprestaurants.domain.Reserve;
@@ -92,15 +95,21 @@ public class RegisterReserveActivity extends AppCompatActivity {
         Reserve reserve = new Reserve(customerId, restaurantId, people, tables, reserveDate, isPaid, allergic);
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
-        db.reserveDao().insert(reserve);
+        try {
+            db.reserveDao().insert(reserve);
 
-        Toast.makeText(this, "Reserve has been registered", Toast.LENGTH_LONG).show();
-        etPeople.setText("");
-        etTables.setText("");
-        etReserveDate.setText("");
-        checkPaid.setChecked(false);
-        checkAllergic.setChecked(false);
-        etPeople.requestFocus();
+            Toast.makeText(this, "Reserve has been registered", Toast.LENGTH_LONG).show();
+            etPeople.setText("");
+            etTables.setText("");
+            etReserveDate.setText("");
+            checkPaid.setChecked(false);
+            checkAllergic.setChecked(false);
+            etPeople.requestFocus();
+        } catch (SQLiteConstraintException sce) {
+            //sce.getMessage();
+            //Toast.makeText(this, "An error has ocurred", Toast.LENGTH_LONG).show();
+            Snackbar.make(customerSpinner, "An error has ocurred. Check that data is valid", BaseTransientBottomBar.LENGTH_LONG).show();
+        }
     }
 
     public void goBackButton(View view) {

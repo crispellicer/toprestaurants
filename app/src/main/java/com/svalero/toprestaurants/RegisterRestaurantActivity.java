@@ -5,12 +5,15 @@ import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Restaurant;
 
@@ -41,16 +44,21 @@ public class RegisterRestaurantActivity extends AppCompatActivity {
         Restaurant restaurant = new Restaurant(name, timetable, type, reservePrice,veganMenu, website);
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
-        db.restaurantDao().insert(restaurant);
+        try {
+            db.restaurantDao().insert(restaurant);
 
-        Toast.makeText(this, "Restaurant has been registered", Toast.LENGTH_LONG).show();
-        etName.setText("");
-        etTimetable.setText("");
-        etType.setText("");
-        etReservePrice.setText("");
-        checkVeganMenu.setChecked(false);
-        etWebsite.setText("");
-        etName.requestFocus();
+            Toast.makeText(this, "Restaurant has been registered", Toast.LENGTH_LONG).show();
+            etName.setText("");
+            etTimetable.setText("");
+            etType.setText("");
+            etReservePrice.setText("");
+            checkVeganMenu.setChecked(false);
+            etWebsite.setText("");
+            etName.requestFocus();
+        } catch (SQLiteConstraintException sce) {
+            Toast.makeText(this, "An error hasocurred", Toast.LENGTH_LONG).show();
+            //Snackbar.make(etName, "An error has ocurred.", BaseTransientBottomBar.LENGTH_LONG).show();
+        }
     }
 
     public void goBackButton(View view) {
