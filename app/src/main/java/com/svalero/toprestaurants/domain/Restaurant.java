@@ -24,6 +24,24 @@ public class Restaurant {
     private boolean veganMenu;
     @ColumnInfo
     private String website;
+    @ColumnInfo
+    private double longitude;
+    @ColumnInfo
+    private double latitude;
+
+
+    public Restaurant(long id, String name, String timetable, String type, double reservePrice, boolean veganMenu, String website, double longitude, double latitude) {
+        this.id = id;
+        this.name = name;
+        this.timetable = timetable;
+        this.type = type;
+        this.reservePrice = reservePrice;
+        this.veganMenu = veganMenu;
+        this.website = website;
+        this.longitude = longitude;
+        this.latitude = latitude;
+
+    }
 
     public Restaurant(long id, String name, String timetable, String type, double reservePrice, boolean veganMenu, String website) {
         this.id = id;
@@ -35,13 +53,16 @@ public class Restaurant {
         this.website = website;
     }
 
-    public Restaurant(String name, String timetable, String type, double reservePrice, boolean veganMenu, String website) {
+    public Restaurant(String name, String timetable, String type, double reservePrice, boolean veganMenu, String website, double longitude, double latitude) {
         this.name = name;
         this.timetable = timetable;
         this.type = type;
         this.reservePrice = reservePrice;
         this.veganMenu = veganMenu;
         this.website = website;
+        this.longitude = longitude;
+        this.latitude = latitude;
+
     }
 
     public Restaurant(){
@@ -100,6 +121,22 @@ public class Restaurant {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }
 

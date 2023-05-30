@@ -62,6 +62,9 @@ public class RestaurantsListView extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterRestaurantActivity.class);
             startActivity(intent);
             return true;
+        } else if (item.getItemId() == R.id.view_map) {
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
         }
 
         return false;

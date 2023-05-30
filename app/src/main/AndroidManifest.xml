@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Toprestaurants"
         tools:targetApi="31">
         <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ModifyReserveActivity"
             android:exported="false" />
         <activity

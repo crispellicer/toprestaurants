@@ -21,6 +21,8 @@ import com.svalero.toprestaurants.domain.Restaurant;
 public class ModifyRestaurantActivity extends AppCompatActivity {
 
     private long id;
+    private double longitude;
+    private double latitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class ModifyRestaurantActivity extends AppCompatActivity {
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         Restaurant restaurant = db.restaurantDao().getById(id);
+        longitude = restaurant.getLongitude();
+        latitude = restaurant.getLatitude();
         fillData(restaurant);
     }
 
@@ -52,7 +56,7 @@ public class ModifyRestaurantActivity extends AppCompatActivity {
         boolean veganMenu = checkVeganMenu.isChecked();
         String website = etWebsite.getText().toString();
 
-        Restaurant restaurant = new Restaurant(id, name, timetable, type, reservePrice, veganMenu, website);
+        Restaurant restaurant = new Restaurant(id, name, timetable, type, reservePrice, veganMenu, website, longitude, latitude);
 
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
