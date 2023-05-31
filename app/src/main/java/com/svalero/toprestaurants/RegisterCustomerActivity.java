@@ -25,9 +25,9 @@ import com.svalero.toprestaurants.domain.Customer;
 
 public class RegisterCustomerActivity extends AppCompatActivity {
 
-    private int SELECT_PICTURE_RESULT = 0;
-    private int REQUEST_IMAGE_CAPTURE = 0;
-    private int TAKE_PICTURE = 1;
+    private int SELECT_PICTURE_RESULT = 1;
+    private int REQUEST_IMAGE_CAPTURE = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,21 +66,19 @@ public class RegisterCustomerActivity extends AppCompatActivity {
         builder.setMessage("Select an option")
                 .setPositiveButton("Take a photo",
                         (dialog, which) -> {
-                            REQUEST_IMAGE_CAPTURE = 1;
-                            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) !=
-                                    PackageManager.PERMISSION_GRANTED) {
+                            int result = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA);
+                            if (result != PackageManager.PERMISSION_GRANTED) {
                                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
                             }
 
 
-                            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                            Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            if (takePhotoIntent.resolveActivity(getPackageManager()) != null) {
+                                startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
                             }
                         })
                 .setNegativeButton("Choose a picture from gallery",
                         (dialog, which) -> {
-                            SELECT_PICTURE_RESULT = 1;
                             Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                             startActivityForResult(intent, SELECT_PICTURE_RESULT);
                         }
@@ -98,7 +96,6 @@ public class RegisterCustomerActivity extends AppCompatActivity {
         }
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ImageView imageView = findViewById(R.id.customer_image);
