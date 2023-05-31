@@ -2,20 +2,32 @@ package com.svalero.toprestaurants;
 
 import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.room.Room;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Customer;
 
 public class RegisterCustomerActivity extends AppCompatActivity {
 
+    private int SELECT_PICTURE_RESULT = 0;
+    private int REQUEST_IMAGE_CAPTURE = 0;
+    private int TAKE_PICTURE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +59,51 @@ public class RegisterCustomerActivity extends AppCompatActivity {
         etBirthDate.setText("");
         checkVip.setChecked(false);
         etName.requestFocus();
+    }
+
+    public void selectPicture(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Select an option")
+                .setPositiveButton("Take a photo",
+                        (dialog, which) -> {
+                            REQUEST_IMAGE_CAPTURE = 1;
+                            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) !=
+                                    PackageManager.PERMISSION_GRANTED) {
+                                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+                            }
+
+
+                            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                            }
+                        })
+                .setNegativeButton("Choose a picture from gallery",
+                        (dialog, which) -> {
+                            SELECT_PICTURE_RESULT = 1;
+                            Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            startActivityForResult(intent, SELECT_PICTURE_RESULT);
+                        }
+                );
+        builder.create().show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if ((requestCode == SELECT_PICTURE_RESULT) && (resultCode == RESULT_OK)
+                && (data != null)) {
+            Picasso.get().load(data.getData()).noPlaceholder().centerCrop().fit()
+                    .into((ImageView) findViewById(R.id.customer_image));
+        }
+
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ImageView imageView = findViewById(R.id.customer_image);
+            imageView.setImageBitmap(imageBitmap);
+        }
     }
 
     public void goBackButton(View view) {
