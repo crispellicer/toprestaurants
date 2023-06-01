@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textPersonName" />
 
         <EditText
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Surname"
+            android:hint="@string/surname"
             android:inputType="textPersonName" />
 
         <EditText
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Telephone"
+            android:hint="@string/telephone"
             android:inputType="textPersonName" />
 
         <EditText
@@ -42,14 +42,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Birth Date"
+            android:hint="@string/birth_date"
             android:inputType="textPersonName" />
 
         <CheckBox
             android:id="@+id/check_box_modify_vip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="VIP" />
+            android:text="@string/vip" />
 
     </LinearLayout>
 
@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="modifyCustomerButton"
-            android:text="Confirm" />
+            android:text="@string/confirm_button" />
 
         <Button
             android:id="@+id/cancel_modify_customer_button"
@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="cancelModifyButton"
-            android:text="Cancel" />
+            android:text="@string/cancel_button" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

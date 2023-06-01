@@ -20,7 +20,7 @@
                 android:id="@+id/textViewCustomerName"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Customer" />
+                android:text="@string/customer" />
 
             <TextView
                 android:id="@+id/tv_reserve_customername_details"
@@ -39,7 +39,7 @@
                 android:id="@+id/textViewRestaurantName"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Restaurant" />
+                android:text="@string/restaurant" />
 
             <TextView
                 android:id="@+id/tv_reserve_restaurantname_details"
@@ -58,7 +58,7 @@
                 android:id="@+id/textViewPeople"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="People" />
+                android:text="@string/people" />
 
             <TextView
                 android:id="@+id/tv_reserve_people_details"
@@ -77,7 +77,7 @@
                 android:id="@+id/textViewTables"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Tables" />
+                android:text="@string/tables" />
 
             <TextView
                 android:id="@+id/tv_reserve_tables_details"
@@ -96,7 +96,7 @@
                 android:id="@+id/textViewReserveDate"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Reserve Date" />
+                android:text="@string/reserve_date" />
 
             <TextView
                 android:id="@+id/tv_reserve_date_details"
@@ -115,7 +115,7 @@
                 android:id="@+id/textViewIsPaid"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Paid" />
+                android:text="@string/paid" />
 
             <CheckBox
                 android:id="@+id/cb_reserve_paid_details"
@@ -135,7 +135,7 @@
                 android:id="@+id/textViewAllergic"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Allergic people" />
+                android:text="@string/allergic_people" />
 
             <CheckBox
                 android:id="@+id/cb_reserve_allergic_details"
@@ -163,7 +163,7 @@
             android:backgroundTint="#1A0342"
             android:onClick="goBackButton"
             android:padding="5dp"
-            android:text="RETURN"
+            android:text="@string/return_button"
             android:textColor="#F6F2F3"
             android:textSize="14sp" />
 

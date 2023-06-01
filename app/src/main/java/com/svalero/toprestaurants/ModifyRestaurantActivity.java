@@ -63,9 +63,9 @@ public class ModifyRestaurantActivity extends AppCompatActivity {
 
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Are you sure to modify that restaurant?")
-                    .setTitle("Modify restaurant")
-                    .setPositiveButton("Yes", (dialog, id) -> {
+            builder.setMessage(R.string.sure)
+                    .setTitle(R.string.modify_restaurant)
+                    .setPositiveButton(R.string.yes, (dialog, id) -> {
 
                         db.restaurantDao().update(restaurant);
 
@@ -73,11 +73,11 @@ public class ModifyRestaurantActivity extends AppCompatActivity {
                         intent.putExtra("id", restaurant.getId());
                         this.startActivity(intent);
                     })
-                    .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+                    .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
         } catch (SQLiteConstraintException sce) {
-            Snackbar.make(etName, "An error has ocurred", BaseTransientBottomBar.LENGTH_LONG);
+            Snackbar.make(etName, R.string.error_message, BaseTransientBottomBar.LENGTH_LONG);
         }
     }
 

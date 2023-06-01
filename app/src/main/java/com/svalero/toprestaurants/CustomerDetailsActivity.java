@@ -30,7 +30,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         Customer customer = db.customerDao().getByName(name);
-        Toast.makeText(this, "Customer: " + customer.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.customer) + customer.getName(), Toast.LENGTH_LONG).show();
 
         fillData(customer);
     }

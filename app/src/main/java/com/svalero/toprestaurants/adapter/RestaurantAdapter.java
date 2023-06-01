@@ -94,9 +94,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
     private void deleteRestaurant(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("Are you sure?")
-                .setTitle("Delete restaurant")
-                .setPositiveButton("Yes", (dialog, id) -> {
+        builder.setMessage(R.string.sure)
+                .setTitle(R.string.delete_restaurant)
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
                     final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
                             .allowMainThreadQueries().build();
                     Restaurant restaurant = restaurantsList.get(position);
@@ -105,7 +105,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
                     restaurantsList.remove(position);
                     notifyItemRemoved(position);
                 })
-                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
         dialog.show();
     }

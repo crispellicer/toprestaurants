@@ -63,9 +63,9 @@ public class ModifyReserveActivity extends AppCompatActivity {
 
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Are you sure to modify that reserve?")
-                    .setTitle("Modify reserve")
-                    .setPositiveButton("Yes", (dialog, id) -> {
+            builder.setMessage(R.string.sure)
+                    .setTitle(R.string.modify_reserve)
+                    .setPositiveButton(R.string.yes, (dialog, id) -> {
 
                         db.reserveDao().update(reserve);
 
@@ -73,11 +73,11 @@ public class ModifyReserveActivity extends AppCompatActivity {
                         intent.putExtra("id", reserve.getId());
                         this.startActivity(intent);
                     })
-                    .setNegativeButton("No", (dialog, is) -> dialog.dismiss());
+                    .setNegativeButton(R.string.no, (dialog, is) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
         } catch (SQLiteConstraintException sce) {
-            Snackbar.make(etPeople, "An error has ocurred", BaseTransientBottomBar.LENGTH_LONG);
+            Snackbar.make(etPeople, R.string.error_message, BaseTransientBottomBar.LENGTH_LONG);
         }
     }
 

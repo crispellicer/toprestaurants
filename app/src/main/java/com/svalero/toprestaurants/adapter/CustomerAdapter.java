@@ -93,9 +93,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     private void deleteCustomer(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("Are you sure?")
-                .setTitle("Delete customer")
-                .setPositiveButton("Yes", (dialog, id) -> {
+        builder.setMessage(R.string.sure)
+                .setTitle(R.string.delete_customer)
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
                     final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
                             .allowMainThreadQueries().build();
                     Customer customer = customersList.get(position);
@@ -104,7 +104,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
                     customersList.remove(position);
                     notifyItemRemoved(position);
                 })
-                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
         dialog.show();
     }

@@ -20,7 +20,7 @@
                 android:id="@+id/textViewName"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:text="@string/name" />
 
             <TextView
                 android:id="@+id/tv_customer_name_details"
@@ -39,7 +39,7 @@
                 android:id="@+id/textViewSurname"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Surname" />
+                android:text="@string/surname" />
 
             <TextView
                 android:id="@+id/tv_customer_surname_details"
@@ -58,7 +58,7 @@
                 android:id="@+id/textViewTelephone"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Telephone" />
+                android:text="@string/telephone" />
 
             <TextView
                 android:id="@+id/tv_customer_telephone_details"
@@ -77,7 +77,7 @@
                 android:id="@+id/textViewBirthDate"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Birth Date" />
+                android:text="@string/birth_date" />
 
             <TextView
                 android:id="@+id/tv_customer_birthdate_details"
@@ -96,7 +96,7 @@
                 android:id="@+id/textViewVip"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="VIP" />
+                android:text="@string/vip" />
 
             <CheckBox
                 android:id="@+id/cb_customer_vip_details"
@@ -124,7 +124,7 @@
             android:backgroundTint="#1A0342"
             android:onClick="goBackButton"
             android:padding="5dp"
-            android:text="RETURN"
+            android:text="@string/return_button"
             android:textColor="#F6F2F3"
             android:textSize="14sp" />
 

@@ -52,7 +52,7 @@ public class RegisterCustomerActivity extends AppCompatActivity {
                 .allowMainThreadQueries().build();
         db.customerDao().insert(customer);
 
-        Toast.makeText(this, "Customer has been registered", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.customer_register, Toast.LENGTH_LONG).show();
         etName.setText("");
         etSurname.setText("");
         etTelephone.setText("");
@@ -63,10 +63,10 @@ public class RegisterCustomerActivity extends AppCompatActivity {
 
     public void selectPicture(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Select an option")
-                .setPositiveButton("Take a photo",
+        builder.setMessage(R.string.select_option)
+                .setPositiveButton(R.string.take_photo,
                         (dialog, which) -> {
-                            int result = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA);
+                            int result = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
                             if (result != PackageManager.PERMISSION_GRANTED) {
                                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
                             }
@@ -77,7 +77,7 @@ public class RegisterCustomerActivity extends AppCompatActivity {
                                 startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
                             }
                         })
-                .setNegativeButton("Choose a picture from gallery",
+                .setNegativeButton(R.string.choose_picture,
                         (dialog, which) -> {
                             Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                             startActivityForResult(intent, SELECT_PICTURE_RESULT);

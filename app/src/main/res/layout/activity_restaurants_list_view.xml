@@ -12,7 +12,7 @@
         android:layout_height="21dp"
         android:layout_marginTop="12dp"
         android:fontFamily="casual"
-        android:text="RESTAURANTS"
+        android:text="@string/restaurants"
         android:textAlignment="center"
         android:textColor="#24146A"
         android:textSize="16sp"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#1A0342"
         android:onClick="goBackButton"
-        android:text="Return"
+        android:text="@string/return_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

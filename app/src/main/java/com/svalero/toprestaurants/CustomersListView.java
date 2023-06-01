@@ -1,5 +1,7 @@
 package com.svalero.toprestaurants;
 
+import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,7 +45,7 @@ public class CustomersListView extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "toprestaurants")
+        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         customersList.clear();
         customersList.addAll(db.customerDao().getAll());

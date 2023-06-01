@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="saveButton"
-            android:text="Save" />
+            android:text="@string/save_button" />
 
         <Button
             android:id="@+id/back_button"
@@ -32,7 +32,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="goBackButton"
-            android:text="Return" />
+            android:text="@string/return_button" />
     </LinearLayout>
 
     <LinearLayout
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textPersonName" />
 
         <EditText
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Surname"
+            android:hint="@string/surname"
             android:inputType="textPersonName" />
 
         <EditText
@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Telephone"
+            android:hint="@string/telephone"
             android:inputType="textPersonName" />
 
         <EditText
@@ -71,14 +71,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Birth Date"
+            android:hint="@string/birth_date"
             android:inputType="textPersonName" />
 
         <CheckBox
             android:id="@+id/check_box_vip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="VIP" />
+            android:text="@string/vip" />
 
         <ImageView
             android:id="@+id/customer_image"

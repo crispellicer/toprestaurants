@@ -33,7 +33,6 @@ public class RegisterReserveActivity extends AppCompatActivity {
 
     private long customerId;
     private long restaurantId;
-    private Customer customer;
     private List<Restaurant> restaurants;
     private List<Customer> customers;
     @Override
@@ -98,7 +97,7 @@ public class RegisterReserveActivity extends AppCompatActivity {
         try {
             db.reserveDao().insert(reserve);
 
-            Toast.makeText(this, "Reserve has been registered", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.reserve_register, Toast.LENGTH_LONG).show();
             etPeople.setText("");
             etTables.setText("");
             etReserveDate.setText("");
@@ -107,8 +106,8 @@ public class RegisterReserveActivity extends AppCompatActivity {
             etPeople.requestFocus();
         } catch (SQLiteConstraintException sce) {
             //sce.getMessage();
-            //Toast.makeText(this, "An error has ocurred", Toast.LENGTH_LONG).show();
-            Snackbar.make(customerSpinner, "An error has ocurred. Check that data is valid", BaseTransientBottomBar.LENGTH_LONG).show();
+            //Toast.makeText(this, "An error has occurred", Toast.LENGTH_LONG).show();
+            Snackbar.make(customerSpinner, R.string.error_message, BaseTransientBottomBar.LENGTH_LONG).show();
         }
     }
 

@@ -96,9 +96,9 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveH
 
     private void deleteReserve(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("Are you sure?")
-                .setTitle("Delete reserve")
-                .setPositiveButton("Yes", (dialog, id) -> {
+        builder.setMessage(R.string.sure)
+                .setTitle(R.string.delete_reserve)
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
                     final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
                             .allowMainThreadQueries().build();
                     Reserve reserve = reservesList.get(position);
@@ -107,7 +107,7 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveH
                     reservesList.remove(position);
                     notifyItemRemoved(position);
                 })
-                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
         dialog.show();
     }

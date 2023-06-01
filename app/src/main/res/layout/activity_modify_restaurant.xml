@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textPersonName" />
 
         <EditText
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Type"
+            android:hint="@string/type"
             android:inputType="textPersonName" />
 
         <EditText
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Timetable"
+            android:hint="@string/timetable"
             android:inputType="textPersonName" />
 
         <EditText
@@ -42,21 +42,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Reserve price"
+            android:hint="@string/reserve_price"
             android:inputType="textPersonName" />
 
         <CheckBox
             android:id="@+id/check_box_modify_veganmenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vegan menu" />
+            android:text="@string/vegan_menu" />
 
         <EditText
             android:id="@+id/edit_text_modify_restaurant_website"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Website"
+            android:hint="@string/website"
             android:inputType="textPersonName" />
 
     </LinearLayout>
@@ -76,7 +76,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="modifyRestaurantButton"
-            android:text="Confirm" />
+            android:text="@string/confirm_button" />
 
         <Button
             android:id="@+id/cancel_modify_restaurant_button"
@@ -85,7 +85,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="cancelModifyButton"
-            android:text="Cancel" />
+            android:text="@string/cancel_button" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

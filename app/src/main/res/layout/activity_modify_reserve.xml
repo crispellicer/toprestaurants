@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="How many people?"
+            android:hint="@string/how_many_people"
             android:inputType="textPersonName" />
 
         <EditText
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="How many tables?"
+            android:hint="@string/how_many_tables"
             android:inputType="textPersonName" />
 
         <EditText
@@ -34,20 +34,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Reserve date"
+            android:hint="@string/reserve_date"
             android:inputType="textPersonName" />
 
         <CheckBox
             android:id="@+id/check_box_modify_paid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Paid" />
+            android:text="@string/paid" />
 
         <CheckBox
             android:id="@+id/check_box_modify_allergic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Allergic people" />
+            android:text="@string/allergic_people" />
 
     </LinearLayout>
 
@@ -66,7 +66,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="modifyReserveButton"
-            android:text="Confirm" />
+            android:text="@string/confirm_button" />
 
         <Button
             android:id="@+id/cancel_modify_reserve_button"
@@ -75,7 +75,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="cancelModifyButton"
-            android:text="Cancel" />
+            android:text="@string/cancel_button" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

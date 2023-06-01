@@ -30,7 +30,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         Restaurant restaurant = db.restaurantDao().getByName(name);
-        Toast.makeText(this, "Restaurant: " + restaurant.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.restaurant) + restaurant.getName(), Toast.LENGTH_LONG).show();
 
         fillData(restaurant);
     }

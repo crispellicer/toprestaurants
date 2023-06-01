@@ -66,7 +66,7 @@ public class RegisterRestaurantActivity extends AppCompatActivity {
         String website = etWebsite.getText().toString();
 
         if (point == null) {
-            Toast.makeText(this, "Select a location on map", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.location_selection, Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -76,7 +76,7 @@ public class RegisterRestaurantActivity extends AppCompatActivity {
         try {
             db.restaurantDao().insert(restaurant);
 
-            Toast.makeText(this, "Restaurant has been registered", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.restaurant_register, Toast.LENGTH_LONG).show();
             etName.setText("");
             etTimetable.setText("");
             etType.setText("");
@@ -85,7 +85,7 @@ public class RegisterRestaurantActivity extends AppCompatActivity {
             etWebsite.setText("");
             etName.requestFocus();
         } catch (SQLiteConstraintException sce) {
-            Toast.makeText(this, "An error has occurred", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.error_message, Toast.LENGTH_LONG).show();
             //Snackbar.make(etName, "An error has occurred.", BaseTransientBottomBar.LENGTH_LONG).show();
         }
     }

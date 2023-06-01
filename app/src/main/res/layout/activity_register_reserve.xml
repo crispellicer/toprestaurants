@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="saveButton"
-            android:text="Save" />
+            android:text="@string/save_button" />
 
         <Button
             android:id="@+id/back_button"
@@ -32,7 +32,7 @@
             android:layout_weight="1"
             android:backgroundTint="#1A0342"
             android:onClick="goBackButton"
-            android:text="Return" />
+            android:text="@string/return_button" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,7 +46,7 @@
             android:id="@+id/textViewSelectCustomerName"
             android:layout_width="169dp"
             android:layout_height="wrap_content"
-            android:text="Select customer" />
+            android:text="@string/select_customer" />
 
         <Spinner
             android:id="@+id/spinner_reserve_customer_name"
@@ -58,7 +58,7 @@
             android:id="@+id/textViewSelectRestaurantName"
             android:layout_width="169dp"
             android:layout_height="wrap_content"
-            android:text="Select restaurant" />
+            android:text="@string/select_restaurant" />
 
         <Spinner
             android:id="@+id/spinner_reserve_restaurant_name"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="How many people?"
+            android:hint="@string/how_many_people"
             android:inputType="textPersonName" />
 
         <EditText
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="How many tables?"
+            android:hint="@string/how_many_tables"
             android:inputType="textPersonName" />
 
         <EditText
@@ -87,20 +87,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Reserve date"
+            android:hint="@string/reserve_date"
             android:inputType="textPersonName" />
 
         <CheckBox
             android:id="@+id/check_box_paid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Paid" />
+            android:text="@string/paid" />
 
         <CheckBox
             android:id="@+id/check_box_allergic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Allergic people" />
+            android:text="@string/allergic_people" />
 
     </LinearLayout>
 
