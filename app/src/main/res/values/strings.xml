@@ -28,8 +28,8 @@
     <string name="vip">VIP</string>
     <string name="return_button">RETURN</string>
     <string name="customers">CUSTOMERS</string>
-    <string name="restaurants">Restaurants</string>
-    <string name="reserves">Reserves</string>
+    <string name="restaurants">RESTAURANTS</string>
+    <string name="reserves">RESERVES</string>
     <string name="confirm_button">Confirm</string>
     <string name="cancel_button">Cancel</string>
     <string name="how_many_people">How many people?</string>

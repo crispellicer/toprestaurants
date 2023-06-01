@@ -1,2 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">toprestaurants</string>
+    <string name="title_activity_restaurants_list_view">RestaurantsListView</string>
+    <string name="sure">¿Estás seguro?</string>
+    <string name="delete_customer">Borrar cliente</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="delete_reserve">Borrar reserva</string>
+    <string name="delete_restaurant">Borrar restaurante</string>
+    <string name="customer">Cliente </string>
+    <string name="modify_customer">Modificar cliente</string>
+    <string name="error_message">Ha ocurrido un error</string>
+    <string name="modify_reserve">Modificar reserva</string>
+    <string name="modify_restaurant">Modificar restaurante</string>
+    <string name="customer_register">El cliente ha sido registrado</string>
+    <string name="select_option">Selecciona una opción</string>
+    <string name="take_photo">Tomar una foto</string>
+    <string name="choose_picture">Elegir desde la galería</string>
+    <string name="reserve_register">La reserva ha sido registrada</string>
+    <string name="location_selection">Selecciona una ubicación en el mapa</string>
+    <string name="restaurant_register">El restaurante ha sido registrado</string>
+    <string name="reserve">Reserva </string>
+    <string name="restaurant">Restaurante </string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellido</string>
+    <string name="telephone">Teléfono</string>
+    <string name="birth_date">Fecha de nacimiento</string>
+    <string name="vip">VIP</string>
+    <string name="return_button">VOLVER</string>
+    <string name="customers">CLIENTES</string>
+    <string name="restaurants">RESTAURANTES</string>
+    <string name="reserves">RESERVAS</string>
+    <string name="confirm_button">Confirmar</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="how_many_people">¿Cuántas personas?</string>
+    <string name="how_many_tables">¿Cuántas mesas?</string>
+    <string name="reserve_date">Fecha de la reserva</string>
+    <string name="paid">Pagado</string>
+    <string name="allergic_people">Personas alérgicas</string>
+    <string name="type">Tipo</string>
+    <string name="timetable">Horario</string>
+    <string name="reserve_price">Precio de la reserva</string>
+    <string name="vegan_menu">Menú vegano</string>
+    <string name="website">Página web</string>
+    <string name="save_button">Guardar</string>
+    <string name="select_customer">Selecciona cliente</string>
+    <string name="select_restaurant">Selecciona restaurante</string>
+    <string name="people">Personas</string>
+    <string name="tables">Mesas</string>
+    <string name="see_details_button">Ver detalles</string>
+    <string name="modify_button">Modificar</string>
+    <string name="delete_button">Borrar</string>
+</resources>
