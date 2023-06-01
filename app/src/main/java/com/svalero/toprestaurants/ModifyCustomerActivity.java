@@ -12,13 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.svalero.toprestaurants.db.AppDatabase;
 import com.svalero.toprestaurants.domain.Customer;
-import com.svalero.toprestaurants.domain.Restaurant;
 
 public class ModifyCustomerActivity extends AppCompatActivity {
 

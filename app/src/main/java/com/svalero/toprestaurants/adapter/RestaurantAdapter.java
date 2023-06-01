@@ -18,7 +18,6 @@ import com.svalero.toprestaurants.ModifyRestaurantActivity;
 import com.svalero.toprestaurants.R;
 import com.svalero.toprestaurants.RestaurantDetailsActivity;
 import com.svalero.toprestaurants.db.AppDatabase;
-import com.svalero.toprestaurants.domain.Reserve;
 import com.svalero.toprestaurants.domain.Restaurant;
 
 import java.util.List;

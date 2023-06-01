@@ -2,21 +2,16 @@ package com.svalero.toprestaurants;
 
 import static com.svalero.toprestaurants.db.Constants.DATABASE_NAME;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ListAdapter;
+import androidx.appcompat.app.AppCompatActivity;;
 import androidx.room.Room;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;

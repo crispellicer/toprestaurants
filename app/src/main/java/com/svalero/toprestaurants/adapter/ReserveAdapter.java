@@ -14,13 +14,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import com.svalero.toprestaurants.CustomerDetailsActivity;
-import com.svalero.toprestaurants.ModifyCustomerActivity;
 import com.svalero.toprestaurants.ModifyReserveActivity;
 import com.svalero.toprestaurants.R;
 import com.svalero.toprestaurants.ReserveDetailsActivity;
 import com.svalero.toprestaurants.db.AppDatabase;
-import com.svalero.toprestaurants.domain.Customer;
 import com.svalero.toprestaurants.domain.Reserve;
 
 import java.util.List;

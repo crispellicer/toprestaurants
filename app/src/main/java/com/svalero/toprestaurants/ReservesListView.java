@@ -14,10 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.svalero.toprestaurants.adapter.CustomerAdapter;
 import com.svalero.toprestaurants.adapter.ReserveAdapter;
 import com.svalero.toprestaurants.db.AppDatabase;
-import com.svalero.toprestaurants.domain.Customer;
 import com.svalero.toprestaurants.domain.Reserve;
 
 import java.util.ArrayList;

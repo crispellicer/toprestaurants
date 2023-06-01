@@ -6,7 +6,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.svalero.toprestaurants.domain.Customer;
 import com.svalero.toprestaurants.domain.Restaurant;
 
 import java.util.List;
