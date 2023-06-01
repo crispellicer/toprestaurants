@@ -7,7 +7,7 @@
     <string name="no">No</string>
     <string name="delete_reserve">Borrar reserva</string>
     <string name="delete_restaurant">Borrar restaurante</string>
-    <string name="customer">Cliente </string>
+    <string name="customer">Cliente</string>
     <string name="modify_customer">Modificar cliente</string>
     <string name="error_message">Ha ocurrido un error</string>
     <string name="modify_reserve">Modificar reserva</string>
@@ -19,8 +19,8 @@
     <string name="reserve_register">La reserva ha sido registrada</string>
     <string name="location_selection">Selecciona una ubicación en el mapa</string>
     <string name="restaurant_register">El restaurante ha sido registrado</string>
-    <string name="reserve">Reserva </string>
-    <string name="restaurant">Restaurante </string>
+    <string name="reserve">Reserva</string>
+    <string name="restaurant">Restaurante</string>
     <string name="name">Nombre</string>
     <string name="surname">Apellido</string>
     <string name="telephone">Teléfono</string>

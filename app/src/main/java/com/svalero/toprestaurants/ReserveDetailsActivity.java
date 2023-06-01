@@ -30,7 +30,7 @@ public class ReserveDetailsActivity extends AppCompatActivity {
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME)
                 .allowMainThreadQueries().build();
         Reserve reserve = db.reserveDao().getById(id);
-         Toast.makeText(this, getString(R.string.reserve) + reserve.getId(), Toast.LENGTH_LONG).show();
+         Toast.makeText(this, getString(R.string.reserve) + " " + reserve.getId(), Toast.LENGTH_LONG).show();
 
         Customer customer = db.customerDao().getById(reserve.getCustomerId());
 
