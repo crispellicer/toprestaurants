@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".RegisterCustomerActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/add_customer_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#1A0342"
+            android:onClick="saveButton"
+            android:text="@string/save_button" />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#1A0342"
+            android:onClick="goBackButton"
+            android:text="@string/return_button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edit_text_customer_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edit_text_customer_surname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/surname"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edit_text_customer_telephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/telephone"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edit_text_customer_birthdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/birth_date"
+            android:inputType="textPersonName" />
+
+        <CheckBox
+            android:id="@+id/check_box_vip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vip" />
+
+        <ImageView
+            android:id="@+id/customer_image"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:onClick="selectPicture"
+            app:srcCompat="@drawable/user_icon"
+            tools:srcCompat="@drawable/user_icon" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

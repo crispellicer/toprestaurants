@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <TextView
+                android:id="@+id/tv_customer_name_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewSurname"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/surname" />
+
+            <TextView
+                android:id="@+id/tv_customer_surname_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTelephone"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/telephone" />
+
+            <TextView
+                android:id="@+id/tv_customer_telephone_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewBirthDate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/birth_date" />
+
+            <TextView
+                android:id="@+id/tv_customer_birthdate_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewVip"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/vip" />
+
+            <CheckBox
+                android:id="@+id/cb_customer_vip_details"
+                android:clickable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back_button"
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1A0342"
+            android:onClick="goBackButton"
+            android:padding="5dp"
+            android:text="@string/return_button"
+            android:textColor="#F6F2F3"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
